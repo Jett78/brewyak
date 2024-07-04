@@ -1,13 +1,16 @@
 import React from 'react'
 import Navbar from './components/Navbar'
 import HeroSection from './components/HeroSection'
+import About from "./pages/About/page"
+import Products from './components/Products'
 
 const page = () => {
   return (
     <div className=''>
       <Navbar/>
       <HeroSection/>
-      {/* <div className='mt-60'></div> */}
+      <About/>
+      <Products/>
     </div>
   )
 }
