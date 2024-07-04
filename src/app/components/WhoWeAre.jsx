@@ -1,5 +1,8 @@
-import React from "react";
-
+"use client"
+import { useGSAP } from '@gsap/react'
+import gsap from "gsap"
+import ScrollTrigger from "gsap/ScrollTrigger";
+import React, { useRef } from 'react'
 const Aboutdata = [
   {
     title: "Best Price Guarenteed",
@@ -18,6 +21,7 @@ const Aboutdata = [
   },
 ];
 
+gsap.registerPlugin(ScrollTrigger);
 const WhoWeAre = () => {
   return (
     <main className="my-40">
