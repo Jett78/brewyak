@@ -7,8 +7,8 @@ import Products from './components/Products'
 const page = () => {
   return (
     <div className=''>
-      <Navbar/>
-      <HeroSection/>
+      <Navbar/> 
+     <HeroSection/> 
       <About/>
       <Products/>
     </div>

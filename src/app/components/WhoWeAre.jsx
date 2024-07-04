@@ -23,13 +23,78 @@ const Aboutdata = [
 
 gsap.registerPlugin(ScrollTrigger);
 const WhoWeAre = () => {
+  const AboutContainer = useRef()
+  const AboutRef = useRef()
+  const AboutDescRef = useRef()
+  const AboutImgRef = useRef()
+
+   useGSAP(()=>{
+        const tl = gsap.timeline({
+            scrollTrigger:{
+                trigger:AboutContainer.current,
+                start: "center center",
+                end: "bottom -300%",
+                scrub:1,
+                pin:true,
+                markers:true,
+            }
+        })
+
+        tl.fromTo(AboutRef.current, 
+          { // Initial state
+            opacity: 0,
+            scale: 0.3,
+            y: 550,
+          }, 
+          { // Final state
+            duration: 2,
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            ease: "power2.inOut"
+          }
+        );
+        tl.to(AboutRef.current,{
+          scale:0.3,
+          y:-160,
+        })
+
+        tl.fromTo(AboutDescRef.current,{
+            opacity:0,
+            y:850,
+        },
+          {
+          y:0,
+          opacity:1,
+          duration:1,
+        }
+      )
+        tl.fromTo(AboutImgRef.current,{
+            opacity:0,
+            y:850,
+        },
+          {
+          y:0,
+          stagger:0.2,
+          opacity:1,
+          duration:1,
+        }
+      )
+
+       
+        tl.to(AboutContainer.current.children,{
+           y:-300,
+           opacity:0,
+           stagger:0.1,
+        })
+      })
   return (
-    <main className="my-40">
+    <main className="my-60 relative" ref={AboutContainer}>
       <div className="text-center">
-        <h2 className="uppercase font-bold text-[32px]">
+        <h2 className="uppercase font-bold text-[90px] opacity-0" ref={AboutRef}>
           who are we <span className="text-primary">?</span>
         </h2>
-        <p className="w-[1350px] mx-auto font-medium text-[20px] leading-10 text-light py-8">
+        <p className="absolute left-1/2 -top-10 -translate-x-1/2  w-[1350px] mx-auto font-medium text-[20px] leading-10 text-light opacity-0" ref={AboutDescRef}>
           We are the best beer brewing company, dedicated to crafting
           exceptional brews that bring people together and create unforgettable
           experiences. At BrewYak, we combine tradition and innovation to craft
@@ -37,7 +102,7 @@ const WhoWeAre = () => {
         </p>
       </div>
 
-      <div className="flex justify-center gap-8 my-8 text-center">
+      <div className="flex justify-center gap-8 my-8 text-center opacity-0" ref={AboutImgRef}>
         {Aboutdata.map((data,index) => (
             <div key={index} className="border-2 rounded-lg w-[360px] h-[230px] px-4 grid justify-center place-items-center">
                 <h2 className="font-medium text-[24px] text-secondwhite">{data.title}</h2>

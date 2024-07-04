@@ -6,9 +6,9 @@ const Navbar = () => {
     <nav className='list-none flex justify-center w-full items-center gap-24'>
         <li className='text-primary'>Home</li>
         <li>About Us</li>
-          <img src="./logo.png" alt="logo" className='px-4'/>
-        <li>Our Products</li>
-        <li>Contact Us</li>
+          <img src="./logo.png" alt="logo" />
+       <l>Our Products</l>
+       <li>Contact Us</li>
     </nav>
    </main>
   )
