@@ -120,10 +120,15 @@ const HeroSection = () => {
       duration: 1,
       ease: "power2.inOut",
     });
-    tl.from(
-      beergoodText.current,
-      {
+
+    tl.fromTo(
+      beergoodText.current,{
+        opacity:0,
         x: 1250,
+
+      },
+      {
+        x:0,
         opacity: 1,
         duration: 1,
         ease: "power2.inOut",
@@ -147,13 +152,16 @@ const HeroSection = () => {
       },
       "<"
     );
-    tl.from(
+    tl.fromTo(
       stepsRef.current.children,
       {
         y: 350,
-        stagger: 0.2,
-        opacity: 0,
-        scale: 0.5,
+        opacity:0,
+      },
+      {
+        y:0,
+        opacity: 1,
+        stagger:0.2,
         duration: 1,
         ease: "power2.inOut",
       },
@@ -164,40 +172,45 @@ const HeroSection = () => {
       duration: 1,
       ease: "power2.inOut",
     });
-    tl.from(
+    tl.fromTo(
       stepsRef2.current,
       {
-        x: 1550,
+        opacity:0,
+        x:1550,
+      },
+      {
+        x:0,
+        opacity:1,
         duration: 1,
         ease: "power2.inOut",
       },
       "<"
     );
 
-    tl.to(beergoodText.current, {
-      y: -600,
-      opacity: 0,
-      scale: 0.3,
-      duration: 1,
-      ease: "power2.inOut",
-    });
+    // tl.to(beergoodText.current, {
+    //   y: -600,
+    //   opacity: 0,
+    //   scale: 0.3,
+    //   duration: 1,
+    //   ease: "power2.inOut",
+    // });
 
-    tl.to(
-      stepsRef2.current.children,
-      {
-        y: -100,
-        duration: 0.5,
-        stagger: 0.2,
-        opacity: 0,
-        scale: 0.5,
-        ease: "power2.inOut",
-      },
-      "<"
-    );
+    // tl.to(
+    //   stepsRef2.current.children,
+    //   {
+    //     y: -100,
+    //     duration: 0.5,
+    //     stagger: 0.2,
+    //     opacity: 0,
+    //     scale: 0.5,
+    //     ease: "power2.inOut",
+    //   },
+    //   "<"
+    // );
   });
   return (
-    <main className="relative w-full " ref={mainref}>
-      <div ref={maincontainerref} className="py-[20em]">
+    <main className="relative w-full h-[80vh]" ref={mainref}>
+      <div ref={maincontainerref} className="pt-[40em]">
         <h2
           className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 text-[240px] font-bold text-center text-bigText"
           ref={bigtitle}
@@ -231,7 +244,7 @@ const HeroSection = () => {
 
       <div>
         <h2
-          className="uppercase absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2  font-bold text-[90px] whitespace-nowrap"
+          className="uppercase absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2  font-bold text-[90px] whitespace-nowrap opacity-0"
           ref={beergoodText}
         >
           <span ref={whyText}>Why</span> Our beer is so good
@@ -240,13 +253,13 @@ const HeroSection = () => {
 
       {/* process container */}
       <div
-        className="flex justify-center gap-[60px] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
+        className="flex justify-center gap-[60px] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 "
         ref={stepsRef}
       >
         {process.map((data, index) => (
           <div
             key={index}
-            className="py-8 w-[250px] h-[290px] border rounded-lg grid gap-2 place-items-center text-center"
+            className="py-8 w-[250px] h-[290px] border rounded-lg grid gap-2 place-items-center text-center opacity-0"
           >
             <figure className="bg-[#272361] w-[80px] h-[80px] rounded-full flex items-center justify-center">
               <img src={data.img} alt="icons" />
@@ -263,7 +276,7 @@ const HeroSection = () => {
 
       {/* process container-2 */}
       <div
-        className="flex justify-center gap-[60px] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
+        className="flex justify-center gap-[60px] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 opacity-0"
         ref={stepsRef2}
       >
         {process2.map((data, index) => (

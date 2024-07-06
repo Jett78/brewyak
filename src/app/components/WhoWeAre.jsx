@@ -32,11 +32,10 @@ const WhoWeAre = () => {
         const tl = gsap.timeline({
             scrollTrigger:{
                 trigger:AboutContainer.current,
-                start: "center center",
-                end: "bottom -300%",
+                start: "top 90%",
+                end: "bottom -200%",
                 scrub:1,
                 pin:true,
-                markers:true,
             }
         })
 
@@ -44,37 +43,37 @@ const WhoWeAre = () => {
           { // Initial state
             opacity: 0,
             scale: 0.3,
-            y: 550,
+            y: 50,
           }, 
           { // Final state
             duration: 2,
             opacity: 1,
             scale: 1,
-            y: 0,
+            y: -370,
             ease: "power2.inOut"
           }
         );
         tl.to(AboutRef.current,{
           scale:0.3,
-          y:-160,
+          y:-560,
         })
 
         tl.fromTo(AboutDescRef.current,{
             opacity:0,
-            y:850,
+            y:150,
         },
           {
-          y:0,
+          y:-400,
           opacity:1,
           duration:1,
         }
       )
         tl.fromTo(AboutImgRef.current,{
             opacity:0,
-            y:850,
+            y:150,
         },
           {
-          y:0,
+          y:-450,
           stagger:0.2,
           opacity:1,
           duration:1,
@@ -82,14 +81,14 @@ const WhoWeAre = () => {
       )
 
        
-        tl.to(AboutContainer.current.children,{
-           y:-300,
-           opacity:0,
-           stagger:0.1,
-        })
+        // tl.to(AboutContainer.current.children,{
+        //    y:-300,
+        //    opacity:0,
+        //    stagger:0.1,
+        // })
       })
   return (
-    <main className="my-60 relative" ref={AboutContainer}>
+    <main className="relative" ref={AboutContainer}>
       <div className="text-center">
         <h2 className="uppercase font-bold text-[90px] opacity-0" ref={AboutRef}>
           who are we <span className="text-primary">?</span>
