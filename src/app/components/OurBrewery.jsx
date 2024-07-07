@@ -72,7 +72,7 @@ const OurBrewery = () => {
       stagger:0.2,
       opacity:1,
       duration:1,
-    }
+    },"<"
   )
     // tl.to(BreweryContainer.current.children,{
     //    y:-300,

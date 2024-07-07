@@ -6,6 +6,8 @@ import React, { useRef, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { MdKeyboardArrowLeft } from "react-icons/md";
+import { MdKeyboardArrowRight } from "react-icons/md";
 
 const Reviews = [
     {
@@ -40,20 +42,55 @@ const Reviews = [
 
 gsap.registerPlugin(ScrollTrigger);
 const Customers = () => {
+  const [slider, setSlider] = useState(null);
+  const [prevButtonClicked, setPrevButtonClicked] = useState(false);
+  const [nextButtonClicked, setNextButtonClicked] = useState(false);
+  
     const customercontainer = useRef();
     const customertitleRef = useRef();
     const customerRef = useRef()
     const [currentSlide, setCurrentSlide] = useState(0);
+     
+    const handleNext = () => {
+      slider?.slickNext();
+      setNextButtonClicked(true);
+      setTimeout(() => setNextButtonClicked(false), 200);
+    };
+  
+    const handlePrev = () => {
+      slider?.slickPrev();
+      setPrevButtonClicked(true);
+      setTimeout(() => setPrevButtonClicked(false), 200);
+    };
 
     const settings = {
         infinite: true,
         speed: 800,
         slidesToShow: 3,
         slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 1000,
         centerMode: true,
-        dotts:true,
+        dots:true,
         centerPadding: "0px",
         beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex),
+        appendDots: dots => (
+          <div style={{ bottom: '-50px' }}>
+            <ul style={{ margin: "0px" }}> {dots} </ul>
+          </div>
+        ),
+        customPaging: i => (
+          <div
+            style={{
+              width: "12px",
+              height: "12px",
+              borderRadius: "50%",
+              backgroundColor: currentSlide === i ? "white" : "rgba(255, 255, 255, 0.5)",
+              display: "inline-block",
+              margin: "0 5px",
+            }}
+          />
+        ),
       };
 
     useGSAP(()=>{
@@ -82,18 +119,18 @@ const Customers = () => {
         }
       );
       tl.to(customertitleRef.current,{
-        scale:0.3,
-        y:-560,
+        scale:0.5,
+        y:-520,
       })
       tl.fromTo(customerRef.current,{
         opacity:0,
-        y:150,
+        y:50,
     },
       {
-      y:-450,
+      y:-400,
       stagger:0.2,
       opacity:1,
-      duration:1,
+      duration:0.5,
     },"<")
         })
 
@@ -120,10 +157,19 @@ const Customers = () => {
                     </section>
                  </div>
                  <p className="text-thirdwhite font-regular text-[14px] py-4">{data.desc}</p>
-
             </div>
            ))}
         </Slider>
+
+           <div className="flex text-4xl items-center gap-60 absolute top-[10em] left-1/2 -translate-x-1/2">
+              <button onClick={handlePrev} className={`${prevButtonClicked ? "scale-90" : "scale-100"} cursor-pointer`}>
+              <MdKeyboardArrowLeft />
+                </button>
+                <button  onClick={handleNext} className={`${nextButtonClicked ? "scale-90" : "scale-100"} cursor-pointer`}>
+              <MdKeyboardArrowRight />
+
+                </button>
+           </div>
       </div>
    </main>
   )

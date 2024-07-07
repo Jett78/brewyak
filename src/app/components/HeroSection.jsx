@@ -116,7 +116,7 @@ const HeroSection = () => {
     //   },"<");
 
     tl.to(maincontainerref.current, {
-      x: -1550,
+      x: -1600,
       duration: 1,
       ease: "power2.inOut",
     });

@@ -60,13 +60,13 @@ const WhoWeAre = () => {
 
         tl.fromTo(AboutDescRef.current,{
             opacity:0,
-            y:150,
+            y:120,
         },
           {
           y:-400,
           opacity:1,
           duration:1,
-        }
+        },"<"
       )
         tl.fromTo(AboutImgRef.current,{
             opacity:0,
@@ -77,7 +77,7 @@ const WhoWeAre = () => {
           stagger:0.2,
           opacity:1,
           duration:1,
-        }
+        },"<"
       )
 
        

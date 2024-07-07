@@ -1,8 +1,11 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useState,useRef } from 'react'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { useGSAP } from '@gsap/react'
+import gsap from "gsap"
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 const ProductsData = [
   {
@@ -25,10 +28,14 @@ const ProductsData = [
   },
 ];
 
+gsap.registerPlugin(ScrollTrigger);
 const Products = () => {
   const [slider, setSlider] = useState(null);
   const [prevButtonClicked, setPrevButtonClicked] = useState(false);
   const [nextButtonClicked, setNextButtonClicked] = useState(false);
+  const ProductContainer = useRef()
+  const titleRef = useRef()
+  const ProductCarouselRef = useRef()
 
   const settings = {
     dots: true,
@@ -51,11 +58,56 @@ const Products = () => {
     setTimeout(() => setPrevButtonClicked(false), 200);
   };
 
+  useGSAP(()=>{
+    const tl = gsap.timeline({
+        scrollTrigger:{
+            trigger:ProductContainer.current,
+            start: "top 90%",
+            end: "bottom -200%",
+            scrub:1,
+            pin:true,
+            markers:true,
+        }
+    })
+    tl.fromTo(titleRef.current, 
+      { // Initial state
+        opacity: 0,
+        scale: 0.3,
+        y: 50,
+      }, 
+      { // Final state
+        duration: 2,
+        opacity: 1,
+        scale: 1,
+        y: -370,
+        ease: "power2.inOut"
+      }
+    );
+    tl.to(titleRef.current,{
+      scale:0.4,
+      y:-560,
+    })
+
+    tl.fromTo(ProductCarouselRef.current,{
+      opacity:0,
+      y:120,
+  },
+    {
+    y:-650,
+    stagger:0.2,
+    opacity:1,
+    duration:1,
+  },"<"
+)
+
+
+  })
+
   return (
-    <main className='my-40 relative'>
-      <h2 className='uppercase text-center text-[40px] font-bold'>our products</h2>
+    <main className='my-40 relative' ref={ProductContainer}>
+      <h2 className='uppercase text-center text-[120px] font-bold' ref={titleRef}>our products</h2>
       <div className='mt-[60px]'>
-        <div className='slider-container'>
+        <div className='slider-container' ref={ProductCarouselRef}>
           <Slider ref={setSlider} {...settings}>
             {ProductsData.map((data, index) => (
               <div key={index} className='grid place-items-center gap-4 text-center'>
