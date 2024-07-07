@@ -54,7 +54,6 @@ const BuyBeer = () => {
             end: "bottom -200%",
             scrub:1,
             pin:true,
-            markers:true,
         }
     })
 

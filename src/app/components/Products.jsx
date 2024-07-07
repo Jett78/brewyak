@@ -44,6 +44,7 @@ const Products = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    arrows:false,
   };
 
   const handleNext = () => {
@@ -66,7 +67,6 @@ const Products = () => {
             end: "bottom -200%",
             scrub:1,
             pin:true,
-            markers:true,
         }
     })
     tl.fromTo(titleRef.current, 
@@ -99,7 +99,11 @@ const Products = () => {
     duration:1,
   },"<"
 )
-
+tl.to(ProductContainer.current,{
+  y:-600,
+  opacity:0,
+  scale:0.5,
+})
 
   })
 

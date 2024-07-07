@@ -210,7 +210,7 @@ const HeroSection = () => {
   });
   return (
     <main className="relative w-full h-[80vh]" ref={mainref}>
-      <div ref={maincontainerref} className="pt-[40em]">
+      <div ref={maincontainerref} className="pt-[45em]">
         <h2
           className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 text-[240px] font-bold text-center text-bigText"
           ref={bigtitle}

@@ -47,10 +47,10 @@ const GetInTouch = () => {
       tl.to(secondarytitleRef.current,{
         scale:0.5,
         delay:0.2,
-        y:-250,
+        y:-350,
       },"<")
       tl.from(formRef.current,{
-        y:500,
+        y:600,
       },"<")
       tl.from(leftbeercontainerRef.current,{
         x:-600,
@@ -59,11 +59,11 @@ const GetInTouch = () => {
         x:600,
       },"<")
       tl.to(leftbeerRef.current,{
-        y:950,
+        y:1150,
         rotateZ:-9.5,
       },)
       tl.to(rightbeerRef.current,{
-        y:950,
+        y:1150,
         rotateZ:9.5,
       },)
     
@@ -77,14 +77,14 @@ const GetInTouch = () => {
        </div>
 
       <div className="relative -mt-40">
-      <form action="#" className="grid place-items-center absolute left-1/2 -translate-x-1/2 -top-[27em]" ref={formRef}>
+      <form action="#" className="grid place-items-center absolute left-1/2 -translate-x-1/2 -top-[35em]" ref={formRef}>
          <input type="text" placeholder="Full name"     className="p-4 w-[22em] border-b-2 border-white bg-transparent focus:outline-none " />
          <input type="text" placeholder="Email"     className="p-4 w-[22em] border-b-2 border-white bg-transparent focus:outline-none " />
          <input type="text" placeholder="Subject"     className="p-4 w-[22em] border-b-2 border-white bg-transparent focus:outline-none " />
          <textarea name="text" placeholder="Message" rows={6} className="p-4 mt-8 w-[22em] border-b-2 border-white bg-transparent focus:outline-none "></textarea>
          <button className="bg-primary rounded-lg px-4 py-2 text-black my-6">Send Message</button>
        </form>
-       <section className="flex justify-center items-center gap-[25em] absolute -bottom-[8em] left-1/2 -translate-x-1/2 -translate-y-1/2">
+       <section className="flex justify-center items-center gap-[25em] absolute -bottom-[1em] left-1/2 -translate-x-1/2 -translate-y-1/2">
         <div className="relative" ref={leftbeercontainerRef}>
           <img src="./beers/mainleftbeer.png" alt="leftbeer" className="absolute -top-[20em] left-10" ref={leftbeerRef} />
           <img src="./Group.png" alt="stand" className=" " />
@@ -99,7 +99,7 @@ const GetInTouch = () => {
 
       <footer className="bg-[url('/footerbackground.png')] bg-cover bg-center w-full h-screen mt-60">
            <figure className="relative">
-               <img src="./beers/centerfooter.png" alt="center beer"  className="absolute top-[10em] left-1/2 -translate-x-1/2 "/>
+               <img src="./beers/centerfooter.png" alt="center beer"  className="absolute top-[14em] left-1/2 -translate-x-1/2 "/>
            </figure>
      </footer>
    </main>

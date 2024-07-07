@@ -23,3 +23,16 @@ body{
 .slick-dots li div {
   transition: background-color 0.3s ease;
 }
+
+::-webkit-scrollbar{
+  width:4px;
+  height: 80px;
+}
+::-webkit-scrollbar-track{
+ background: black;
+ 
+}
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(#642bff,#ff22e6);
+  
+}

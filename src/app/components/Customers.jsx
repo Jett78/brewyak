@@ -132,6 +132,12 @@ const Customers = () => {
       opacity:1,
       duration:0.5,
     },"<")
+
+    tl.to(customercontainer.current,{
+      y:-800,
+      opacity:0,
+      scale:0.5,
+    })
         })
 
   return (
