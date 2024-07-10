@@ -88,9 +88,9 @@ const WhoWeAre = () => {
         // })
       })
   return (
-    <main className="relative" ref={AboutContainer}>
+    <main className="relative" ref={AboutContainer} >
       <div className="text-center">
-        <h2 className="uppercase font-bold text-[90px] opacity-0" ref={AboutRef}>
+        <h2 className="uppercase font-bold text-[90px] opacity-0" ref={AboutRef} >
           who are we <span className="text-primary">?</span>
         </h2>
         <p className="absolute left-1/2 -top-10 -translate-x-1/2  w-[1350px] mx-auto font-medium text-[20px] leading-10 text-light opacity-0" ref={AboutDescRef}>
@@ -101,14 +101,14 @@ const WhoWeAre = () => {
         </p>
       </div>
 
-      <div className="flex justify-center gap-8 my-8 text-center opacity-0" ref={AboutImgRef}>
+      <div className="flex justify-center gap-8 my-8 text-center opacity-0" ref={AboutImgRef} >
         {Aboutdata.map((data,index) => (
             <div key={index} className="border-2 rounded-lg w-[360px] h-[230px] px-4 grid justify-center place-items-center">
                 <h2 className="font-medium text-[24px] text-secondwhite">{data.title}</h2>
                     <figure className="bg-[#272361] w-[80px] h-[80px] rounded-full flex items-center justify-center">
                        <img src={data.img} alt="icons" />
                     </figure>
-                <p className="text-thirdwhite text-[16px]">{data.desc}</p>
+                <p className="text-thirdwhite text-[16px]" id="about">{data.desc}</p>
             </div>
         ))}
       </div>

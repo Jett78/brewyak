@@ -72,6 +72,7 @@ const Customers = () => {
         autoplaySpeed: 1000,
         centerMode: true,
         dots:true,
+        arrows:false,
         centerPadding: "0px",
         beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex),
         appendDots: dots => (

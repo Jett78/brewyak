@@ -25,6 +25,7 @@ const GetInTouch = () => {
                 pin:true,
             }
     })
+   
     tl.fromTo(titlecontainerRef.current, 
         { // Initial state
           opacity: 0,
@@ -58,19 +59,20 @@ const GetInTouch = () => {
       tl.from(rightbeercontainerRef.current,{
         x:600,
       },"<")
+
       tl.to(leftbeerRef.current,{
-        y:1150,
+        y:1080,
         rotateZ:-9.5,
       },)
       tl.to(rightbeerRef.current,{
-        y:1150,
+        y:1080,
         rotateZ:9.5,
-      },)
+      },"<")
     
 })
 
   return (
-   <main className='my-60 h-screen relative ' ref={maincontainerRef}>
+   <main className='my-60 h-screen relative ' ref={maincontainerRef} >
        <div className='font-bold text-[64px] uppercase text-center' ref={titlecontainerRef}>
          <h2 ref={maintitleRef}>Curious to taste our brews</h2>
          <h2 ref={secondarytitleRef}>get in <span className='text-primary'>touch</span></h2>
@@ -97,9 +99,9 @@ const GetInTouch = () => {
       </div>
 
 
-      <footer className="bg-[url('/footerbackground.png')] bg-cover bg-center w-full h-screen mt-60">
+      <footer className="bg-[url('/footerbackground.png')] bg-cover bg-center w-full h-screen mt-60" >
            <figure className="relative">
-               <img src="./beers/centerfooter.png" alt="center beer"  className="absolute top-[14em] left-1/2 -translate-x-1/2 "/>
+               <img src="./beers/centerfooter.png" alt="center beer"  className="absolute top-[10em] left-1/2 -translate-x-1/2 " id="contact"/>
            </figure>
      </footer>
    </main>

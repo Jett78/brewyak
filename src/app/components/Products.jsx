@@ -108,7 +108,7 @@ tl.to(ProductContainer.current,{
   })
 
   return (
-    <main className='my-40 relative' ref={ProductContainer}>
+    <main className='my-40 relative' ref={ProductContainer} >
       <h2 className='uppercase text-center text-[120px] font-bold' ref={titleRef}>our products</h2>
       <div className='mt-[60px]'>
         <div className='slider-container' ref={ProductCarouselRef}>
@@ -137,7 +137,7 @@ tl.to(ProductContainer.current,{
                   <path fill="currentColor" d="M49.132 21.984L12.714 48.039a2.516 2.516 0 0 0-1.051 2.043v.006a2.52 2.52 0 0 0 1.059 2.048L49.14 78.023a2.513 2.513 0 0 0 2.612.183a2.508 2.508 0 0 0 1.361-2.236V63.787l32.709.001a2.514 2.514 0 0 0 2.515-2.516l-.001-22.541a2.515 2.515 0 0 0-2.516-2.516H53.114V24.029c0-.94-.53-1.803-1.367-2.237a2.51 2.51 0 0 0-2.615.192"/>
                 </svg>
               </div>
-              <div onClick={handleNext} className={`${nextButtonClicked ? "scale-90" : "scale-100"} cursor-pointer`}>
+              <div onClick={handleNext} className={`${nextButtonClicked ? "scale-90" : "scale-100"} cursor-pointer`} id="products">
                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 100 100">
                   <path fill="currentColor" d="m50.868 78.016l36.418-26.055a2.516 2.516 0 0 0 1.051-2.043v-.006a2.52 2.52 0 0 0-1.059-2.048L50.86 21.977a2.513 2.513 0 0 0-2.612-.183a2.509 2.509 0 0 0-1.361 2.236v12.183l-32.709-.001a2.514 2.514 0 0 0-2.515 2.516l.001 22.541a2.515 2.515 0 0 0 2.516 2.516h32.706v12.187c0 .94.53 1.803 1.366 2.237a2.512 2.512 0 0 0 2.616-.193"/>
                 </svg>
