@@ -6,6 +6,8 @@ import Slider from "react-slick";
 import { useGSAP } from '@gsap/react'
 import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { MdKeyboardArrowLeft } from "react-icons/md";
+import { MdKeyboardArrowRight } from "react-icons/md";
 
 const BuyBeerData = [
   {
@@ -28,6 +30,26 @@ const BuyBeerData = [
     img: "./buybeer/buy4.png",
     location: "GoldschmidtstraBe 13, 04103 Leipzig +49387-10-387",
   },
+  {
+    title: "The Chef House",
+    img: "./buybeer/buy4.png",
+    location: "GoldschmidtstraBe 13, 04103 Leipzig +49387-10-387",
+  },
+  {
+    title: "The Chef House",
+    img: "./buybeer/buy4.png",
+    location: "GoldschmidtstraBe 13, 04103 Leipzig +49387-10-387",
+  },
+  {
+    title: "The Chef House",
+    img: "./buybeer/buy4.png",
+    location: "GoldschmidtstraBe 13, 04103 Leipzig +49387-10-387",
+  },
+  {
+    title: "The Chef House",
+    img: "./buybeer/buy4.png",
+    location: "GoldschmidtstraBe 13, 04103 Leipzig +49387-10-387",
+  },
 ];
 
 gsap.registerPlugin(ScrollTrigger);
@@ -43,7 +65,8 @@ const BuyBeer = () => {
     slidesToShow: 1, // Ensure one slide is shown at a time for proper centering
     speed: 500,
     rows: 2,
-    slidesPerRow: 2, // Ensure two slides are shown per row
+    slidesPerRow: 2,
+    centerPadding: "0px", // Ensure two slides are shown per row
   };
 
   useGSAP(()=>{
@@ -52,23 +75,23 @@ const BuyBeer = () => {
             trigger:BuyBeerContainer.current,
             start: "top 90%",
             end: "bottom -200%",
-            scrub:1,
+            scrub:2,
             pin:true,
+            markers:true,
         }
     })
 
     tl.fromTo(BuyBeerContainer.current, 
       { // Initial state
         opacity: 0,
-        scale: 0.3,
+        scale: 0.2,
         y: 50,
       }, 
       { // Final state
         duration: 2,
         opacity: 1,
         scale: 1,
-        y: -480,
-        ease: "power2.inOut"
+        y: -550,
       }
     );
 
@@ -81,10 +104,10 @@ const BuyBeer = () => {
         Do buy our beer from
       </h2>
 
-      <div className="slider-container mx-60" ref={BuyBeerImg}>
+      <div className="slider-container mx-20 px-10 " ref={BuyBeerImg}>
         <Slider {...settings}>
           {BuyBeerData.map((data, index) => (
-            <div key={index} className="flex justify-center items-center h-full px-4">
+            <div key={index} className="flex justify-center items-center h-full px-40 py-10 ">
               <div className="flex gap-8 items-center">
                 <img src={data.img} alt="imgs" />
                 <div className="grid gap-2">
@@ -99,6 +122,16 @@ const BuyBeer = () => {
             </div>
           ))}
         </Slider>
+
+        {/* <div className="flex text-4xl items-center gap-40 absolute top-[10em] left-1/2 -translate-x-1/2">
+              <button onClick={handlePrev} >
+              <MdKeyboardArrowLeft />
+                </button>
+                <button  onClick={handleNext} >
+              <MdKeyboardArrowRight />
+
+                </button>
+           </div> */}
       </div>
     </main>
   );

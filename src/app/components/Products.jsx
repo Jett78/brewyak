@@ -99,16 +99,16 @@ const Products = () => {
     duration:1,
   },"<"
 )
-tl.to(ProductContainer.current,{
-  y:-600,
-  opacity:0,
-  scale:0.5,
-})
+// tl.to(ProductContainer.current,{
+//   y:-600,
+//   opacity:0,
+//   scale:0.2,
+// })
 
   })
 
   return (
-    <main className='my-40 relative' ref={ProductContainer} >
+    <main className='my-40 relative bg-red-200 h-[0vh]' ref={ProductContainer} >
       <h2 className='uppercase text-center text-[120px] font-bold' ref={titleRef}>our products</h2>
       <div className='mt-[60px]'>
         <div className='slider-container' ref={ProductCarouselRef}>

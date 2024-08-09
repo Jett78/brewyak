@@ -42,26 +42,20 @@ const Reviews = [
 
 gsap.registerPlugin(ScrollTrigger);
 const Customers = () => {
-  const [slider, setSlider] = useState(null);
-  const [prevButtonClicked, setPrevButtonClicked] = useState(false);
-  const [nextButtonClicked, setNextButtonClicked] = useState(false);
-  
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const sliderRef = useRef(null); 
+
     const customercontainer = useRef();
     const customertitleRef = useRef();
     const customerRef = useRef()
-    const [currentSlide, setCurrentSlide] = useState(0);
      
     const handleNext = () => {
-      slider?.slickNext();
-      setNextButtonClicked(true);
-      setTimeout(() => setNextButtonClicked(false), 200);
-    };
-  
-    const handlePrev = () => {
-      slider?.slickPrev();
-      setPrevButtonClicked(true);
-      setTimeout(() => setPrevButtonClicked(false), 200);
-    };
+      sliderRef.current.slickNext();
+  };
+
+  const handlePrev = () => {
+      sliderRef.current.slickPrev();
+  };
 
     const settings = {
         infinite: true,
@@ -69,7 +63,7 @@ const Customers = () => {
         slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 1000,
+        autoplaySpeed: 2000,
         centerMode: true,
         dots:true,
         arrows:false,
@@ -83,8 +77,8 @@ const Customers = () => {
         customPaging: i => (
           <div
             style={{
-              width: "12px",
-              height: "12px",
+              width: "10px",
+              height: "10px",
               borderRadius: "50%",
               backgroundColor: currentSlide === i ? "white" : "rgba(255, 255, 255, 0.5)",
               display: "inline-block",
@@ -134,18 +128,18 @@ const Customers = () => {
       duration:0.5,
     },"<")
 
-    tl.to(customercontainer.current,{
-      y:-800,
-      opacity:0,
-      scale:0.5,
-    })
+    // tl.to(customercontainer.current,{
+    //   y:-800,
+    //   opacity:0,
+    //   scale:0.5,
+    // })
         })
 
   return (
-   <main className="my-60 h-screen relative " ref={customercontainer}>
+   <main className="my-60 relative h-[0vh]" ref={customercontainer}>
     <h2 className='uppercase font-bold text-[60px] text-center' ref={customertitleRef}>our customers are in love with our beer</h2>
       <div className='slider-container absolute inset-0' ref={customerRef}>
-        <Slider {...settings} >
+        <Slider {...settings} ref={sliderRef}>
            {Reviews.map((data,index) => (
             <div key={index}  className={`${index === currentSlide ? "scale-110 " : "  scale-75" } bg-[#0a073ca7] border-[#0a073ca7] rounded-2xl my-5 py-10 px-4  transition-transform duration-500 ease-in-out border `}>
                  <div className="flex justify-between items-center"> 
@@ -168,11 +162,11 @@ const Customers = () => {
            ))}
         </Slider>
 
-           <div className="flex text-4xl items-center gap-60 absolute top-[10em] left-1/2 -translate-x-1/2">
-              <button onClick={handlePrev} className={`${prevButtonClicked ? "scale-90" : "scale-100"} cursor-pointer`}>
+           <div className="flex text-4xl items-center gap-40 absolute top-[10em] left-1/2 -translate-x-1/2">
+              <button onClick={handlePrev} >
               <MdKeyboardArrowLeft />
                 </button>
-                <button  onClick={handleNext} className={`${nextButtonClicked ? "scale-90" : "scale-100"} cursor-pointer`}>
+                <button  onClick={handleNext} >
               <MdKeyboardArrowRight />
 
                 </button>

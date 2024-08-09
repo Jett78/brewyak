@@ -15,6 +15,7 @@ const GetInTouch = () => {
     const leftbeercontainerRef = useRef()
     const rightbeerRef = useRef()
     const leftbeerRef = useRef()
+    const footerRef = useRef()
     useGSAP(()=>{
         const tl = gsap.timeline({
             scrollTrigger:{
@@ -24,6 +25,14 @@ const GetInTouch = () => {
                 scrub:1,
                 pin:true,
             }
+    })
+    const tl2 = gsap.timeline({
+      scrollTrigger:{
+        trigger:maincontainerRef.current,
+        start:"20% bottom",
+        end:"bottom 60%",
+        scrub:2,
+      }
     })
    
     tl.fromTo(titlecontainerRef.current, 
@@ -60,11 +69,11 @@ const GetInTouch = () => {
         x:600,
       },"<")
 
-      tl.to(leftbeerRef.current,{
+      tl2.to(leftbeerRef.current,{
         y:1080,
         rotateZ:-9.5,
       },)
-      tl.to(rightbeerRef.current,{
+      tl2.to(rightbeerRef.current,{
         y:1080,
         rotateZ:9.5,
       },"<")
@@ -99,9 +108,9 @@ const GetInTouch = () => {
       </div>
 
 
-      <footer className="bg-[url('/footerbackground.png')] bg-cover bg-center w-full h-screen mt-60" >
+      <footer className="bg-[url('/footerbackground.png')] bg-cover bg-center w-full h-screen mt-60" ref={footerRef} id="contact">
            <figure className="relative">
-               <img src="./beers/centerfooter.png" alt="center beer"  className="absolute top-[10em] left-1/2 -translate-x-1/2 " id="contact"/>
+               <img src="./beers/centerfooter.png" alt="center beer"  className="absolute top-[10em] left-1/2 -translate-x-1/2 " />
            </figure>
      </footer>
    </main>

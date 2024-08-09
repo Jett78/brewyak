@@ -51,11 +51,11 @@ useEffect(() => {
 
   return (
     <div className='overflow-hidden'>
-      <Navbar scrollDirection={scrollDirection} />
+       <Navbar scrollDirection={scrollDirection}/>
       <HeroSection />
       <About />
       <Products />
-      {/* <BuyBeer /> */}
+      <BuyBeer />
       <Customers />
       <GetInTouch />
     </div>

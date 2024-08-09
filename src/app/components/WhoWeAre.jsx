@@ -93,7 +93,7 @@ const WhoWeAre = () => {
         <h2 className="uppercase font-bold text-[90px] opacity-0" ref={AboutRef} >
           who are we <span className="text-primary">?</span>
         </h2>
-        <p className="absolute left-1/2 -top-10 -translate-x-1/2  w-[1350px] mx-auto font-medium text-[20px] leading-10 text-light opacity-0" ref={AboutDescRef}>
+        <p className="absolute left-1/2 -top-10 -translate-x-1/2  w-[1050px] mx-auto  text-[20px] leading-8 text-light opacity-0 text-thirdwhite" ref={AboutDescRef}>
           We are the best beer brewing company, dedicated to crafting
           exceptional brews that bring people together and create unforgettable
           experiences. At BrewYak, we combine tradition and innovation to craft
@@ -103,11 +103,12 @@ const WhoWeAre = () => {
 
       <div className="flex justify-center gap-8 my-8 text-center opacity-0" ref={AboutImgRef} >
         {Aboutdata.map((data,index) => (
-            <div key={index} className="border-2 rounded-lg w-[360px] h-[230px] px-4 grid justify-center place-items-center">
-                <h2 className="font-medium text-[24px] text-secondwhite">{data.title}</h2>
+            <div key={index} className="border border-gray-700 rounded-lg w-[360px] h-[260px] px-4 grid justify-center place-items-center">
                     <figure className="bg-[#272361] w-[80px] h-[80px] rounded-full flex items-center justify-center">
                        <img src={data.img} alt="icons" />
                     </figure>
+                    <h2 className="font-medium text-[24px] text-secondwhite">{data.title}</h2>
+
                 <p className="text-thirdwhite text-[16px]" id="about">{data.desc}</p>
             </div>
         ))}
